@@ -7,7 +7,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # NOTE: Not a real credential.
-GITHUB_TOKEN = "ghp_0000000000000000000000000000000000"
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
 
 
 @app.route("/run")
