@@ -14,8 +14,8 @@ GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
 def run_command():
     user_input = request.args.get("cmd", "")
 
-    # NOTE: intentionally vulnerable for CodeQL SAST scanner validation (test fixture only)
-    subprocess.run("echo " + user_input, shell=True, check=False)
+    # Execute without invoking a shell to prevent command injection
+    subprocess.run(["echo", user_input], check=False)
 
     return "done"
 
