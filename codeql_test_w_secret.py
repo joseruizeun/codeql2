@@ -28,10 +28,9 @@ def get_user():
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # NOTE: intentionally vulnerable for CodeQL SAST scanner validation (test fixture only)
-    query = "SELECT * FROM users WHERE name = '" + username + "'"
+    query = "SELECT * FROM users WHERE name = ?"
 
-    cursor.execute(query)
+    cursor.execute(query, (username,))
 
     return str(cursor.fetchall())
 
